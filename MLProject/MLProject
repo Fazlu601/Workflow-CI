@@ -1,0 +1,9 @@
+name: churn-prediction
+
+conda_env: conda.yaml
+
+entry_points:
+  main:
+    parameters:
+      data_path: {type: str, default: "telco_churn_preprocessing/telco_churn_preprocessed.xlsx"}
+    command: "python modelling.py --data_path {data_path}"

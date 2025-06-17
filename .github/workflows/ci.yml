@@ -27,8 +27,8 @@ jobs:
     - name: Verify conda environment
       run: conda info --envs
 
-    - name: Copy preprocessed dataset to root
-      run: cp MLProject/telco_churn_preprocessing/telco_churn_preprocessed.xlsx ./telco_churn_preprocessed.xlsx
+    - name: Copy dataset into MLProject folder
+      run: cp MLProject/telco_churn_preprocessing/telco_churn_preprocessed.xlsx MLProject/telco_churn_preprocessed.xlsx
 
     - name: Run MLflow project
       shell: bash -l {0}

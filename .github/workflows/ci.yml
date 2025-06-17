@@ -11,9 +11,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Clear conda cache
-      run: conda clean --all --yes
-
     - name: Checkout repository
       uses: actions/checkout@v3
 
@@ -21,14 +18,10 @@ jobs:
       uses: conda-incubator/setup-miniconda@v2
       with:
         auto-activate-base: false
-        activate-environment: mlflow-env
         environment-file: MLProject/conda.yaml
-        auto-update-conda: true
-        use-only-tar-bz2: true  # Tambahan opsional untuk stabilitas
-
-    - name: Confirm Conda Environment
-      run: conda info --envs
+        activate-environment: mlflow-env
+        use-only-tar-bz2: true
 
     - name: Run MLflow project
       run: |
-        mlflow run MLProject -P data_path=MLProject/telco_churn_preprocessing/telco_churn_preprocessed.xlsx
+        mlflow run MLProject -P data_path=MLProject/telco_churn_preprocessed.xlsx

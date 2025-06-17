@@ -28,5 +28,8 @@ jobs:
       run: conda info --envs
 
     - name: Run MLflow project
+      shell: bash -l {0}
       run: |
+        conda activate mlflow-env
         mlflow run MLProject -P data_path=MLProject/telco_churn_preprocessing/telco_churn_preprocessed.xlsx
+

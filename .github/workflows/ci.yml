@@ -14,18 +14,19 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Set up Miniconda
+    - name: Set up Conda and Python
       uses: conda-incubator/setup-miniconda@v2
       with:
-        auto-activate-base: false
         activate-environment: mlflow-env
         environment-file: MLProject/conda.yaml
         python-version: 3.10
-        auto-update-conda: true
+        auto-activate-base: false
 
-    - name: Confirm Conda Environment
-      run: conda info --envs
+    - name: Install MLflow
+      run: |
+        conda install pip
+        pip install mlflow
 
     - name: Run MLflow project
       run: |
-        mlflow run MLProject -P data_path=MLProject/telco_churn_preprocessing/telco_churn_preprocessed.xlsx
+        mlflow run MLProject -P data_path=telco_churn_preprocessing/telco_churn_preprocessed.xlsx

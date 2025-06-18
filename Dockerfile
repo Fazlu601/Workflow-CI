@@ -1,7 +1,6 @@
 FROM continuumio/miniconda3
 
 WORKDIR /app
-COPY ./app /app
 
 COPY MLProject/conda.yaml .
 

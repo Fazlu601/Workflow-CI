@@ -37,7 +37,7 @@ jobs:
         mlflow run MLProject -P data_path=telco_churn_preprocessed.xlsx
 
     - name: Upload model artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: churn-model
         path: MLProject/mlruns

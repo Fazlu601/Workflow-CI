@@ -2,14 +2,17 @@ FROM continuumio/miniconda3
 
 WORKDIR /app
 
-# Salin conda env
-COPY MLProject/telco_churn_preprocessing/conda.yaml .
+# Salin seluruh isi MLProject (pastikan relative to build context)
+COPY MLProject /app/MLProject
+
+# Ganti directory kerja ke dalam folder isi project kamu
+WORKDIR /app/MLProject/telco_churn_preprocessing
+
+# Buat environment dari conda.yaml
 RUN conda env create -f conda.yaml
 
-# Salin seluruh folder preprocessing
-COPY MLProject/telco_churn_preprocessing /app/telco_churn_preprocessing
-
-# Jalankan perintah dalam environment conda
+# Gunakan shell dari environment
 SHELL ["conda", "run", "-n", "mlflow-env", "/bin/bash", "-c"]
 
-CMD ["conda", "run", "-n", "mlflow-env", "python", "telco_churn_preprocessing/modelling.py", "--data_path", "telco_churn_preprocessing/telco_churn_preprocessed.xlsx"]
+# Jalankan skrip modelling
+CMD ["conda", "run", "-n", "mlflow-env", "python", "modelling.py", "--data_path", "telco_churn_preprocessed.xlsx"]

@@ -35,3 +35,19 @@ jobs:
       run: |
         conda activate mlflow-env
         mlflow run MLProject -P data_path=telco_churn_preprocessed.xlsx
+
+    - name: Upload model artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: churn-model
+        path: MLProject/mlruns
+
+    - name: Docker login
+      run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+
+    - name: Build Docker image
+      run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/mlflow-churn:latest .
+
+    - name: Push Docker image to Docker Hub
+      run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/mlflow-churn:latest
+

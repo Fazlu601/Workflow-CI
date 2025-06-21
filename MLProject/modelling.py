@@ -56,9 +56,6 @@ with mlflow.start_run():
 print("✅ Model training complete and metrics logged to MLflow.")
 print(f"Model accuracy: {accuracy}")
 
-# Simpan model ke MLflow
-mlflow.sklearn.log_model(model, "model")
-
 # Tambahan simpan ke file lokal untuk inference.py
 import joblib
 joblib.dump(model, "model.pkl")

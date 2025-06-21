@@ -37,6 +37,9 @@ jobs:
         ls MLProject
         mlflow run MLProject -e main -P data_path=telco_churn_preprocessed.xlsx
 
+    - name: List MLflow runs
+      run: ls -R MLProject/mlruns || echo "No mlruns found"
+
     - name: Upload model artifact
       uses: actions/upload-artifact@v4
       with:

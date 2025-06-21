@@ -7,7 +7,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 from mlflow.models.signature import infer_signature
 
-mlflow.set_tracking_uri("mlruns") 
+import os
+os.makedirs("mlruns", exist_ok=True)
+
+
+mlflow.set_tracking_uri("file:mlruns")
 
 # Argument parser
 parser = argparse.ArgumentParser()

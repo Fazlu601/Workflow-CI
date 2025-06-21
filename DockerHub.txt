@@ -1,1 +1,1 @@
-https://hub.docker.com/repository/docker/anakin601/mlflow-churn
+https://hub.docker.com/repository/docker/anakin601/mlflow-project/general

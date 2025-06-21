@@ -34,7 +34,8 @@ jobs:
       shell: bash -l {0}
       run: |
         conda activate mlflow-env
-        mlflow run MLProject -P data_path=telco_churn_preprocessed.xlsx
+        ls MLProject
+        mlflow run MLProject -e main -P data_path=telco_churn_preprocessed.xlsx
 
     - name: Upload model artifact
       uses: actions/upload-artifact@v4

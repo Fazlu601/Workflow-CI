@@ -34,6 +34,7 @@ jobs:
       shell: bash -l {0}
       run: |
         conda activate mlflow-env
+        export MLFLOW_TRACKING_URI=MLProject/mlruns
         ls MLProject
         mlflow run MLProject -e main -P data_path=telco_churn_preprocessed.xlsx
 

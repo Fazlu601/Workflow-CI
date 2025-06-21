@@ -1,0 +1,10 @@
+artifact_location: file:///D:/project-laskar-ai/final_submission/Workflow-CI/mlruns/0/models/m-ab4d29fef1e04ba28e607a4debda7f6d/artifacts
+creation_timestamp: 1750357956977
+experiment_id: '0'
+last_updated_timestamp: 1750357959901
+model_id: m-ab4d29fef1e04ba28e607a4debda7f6d
+model_type: null
+name: model
+source_run_id: null
+status: 2
+status_message: null

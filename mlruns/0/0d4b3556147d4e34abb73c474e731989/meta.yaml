@@ -1,0 +1,14 @@
+artifact_uri: file:///D:/project-laskar-ai/final_submission/Workflow-CI/mlruns/0/0d4b3556147d4e34abb73c474e731989/artifacts
+end_time: 1750357956964
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 0d4b3556147d4e34abb73c474e731989
+run_name: clumsy-fawn-259
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750357951495
+status: 3
+tags: []
+user_id: ASUS
